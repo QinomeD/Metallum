@@ -13,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import qinomed.metallum.datagen.MetallumItemModels;
+import qinomed.metallum.datagen.MetallumLang;
 import qinomed.metallum.item.MetallumItems;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -62,5 +63,6 @@ public class Metallum {
         DataGenerator generator = event.getGenerator();
         MetallumItemModels itemProvider = new MetallumItemModels(generator, event.getExistingFileHelper());
         generator.addProvider(event.includeServer(), itemProvider);
+        generator.addProvider(event.includeClient(), new MetallumLang(generator));
     }
 }
