@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "metallum:item/iron_cluster_shovel"
+  }
+}
