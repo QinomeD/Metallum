@@ -21,6 +21,8 @@ public class MetallumLang extends LanguageProvider {
     protected void addTranslations() {
         Set<RegistryObject<Item>> items = new HashSet<>(ITEMS.getEntries());
 
+        add("itemGroup.metallum", "Metallum");
+
         items.forEach(item -> add(item.get(), DataHelper.toTitleCase(item.getId().getPath(), "_")));
     }
 }

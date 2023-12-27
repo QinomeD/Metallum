@@ -8,5 +8,6 @@
   "item.metallum.iron_cluster_hoe": "Iron Cluster Hoe",
   "item.metallum.iron_cluster_pickaxe": "Iron Cluster Pickaxe",
   "item.metallum.iron_cluster_shovel": "Iron Cluster Shovel",
-  "item.metallum.iron_cluster_sword": "Iron Cluster Sword"
+  "item.metallum.iron_cluster_sword": "Iron Cluster Sword",
+  "itemGroup.metallum": "Metallum"
 }
