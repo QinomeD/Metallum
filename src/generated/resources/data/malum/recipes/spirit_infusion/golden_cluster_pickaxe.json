@@ -1,0 +1,26 @@
+{
+  "type": "malum:spirit_infusion",
+  "extra_items": [
+    {
+      "count": 6,
+      "item": "malum:gold_node"
+    }
+  ],
+  "input": {
+    "count": 1,
+    "item": "minecraft:golden_pickaxe"
+  },
+  "output": {
+    "item": "metallum:golden_cluster_pickaxe"
+  },
+  "spirits": [
+    {
+      "type": "earthen",
+      "count": 8
+    },
+    {
+      "type": "infernal",
+      "count": 8
+    }
+  ]
+}

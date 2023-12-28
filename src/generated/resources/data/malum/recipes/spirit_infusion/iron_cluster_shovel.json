@@ -1,0 +1,26 @@
+{
+  "type": "malum:spirit_infusion",
+  "extra_items": [
+    {
+      "count": 6,
+      "item": "malum:iron_node"
+    }
+  ],
+  "input": {
+    "count": 1,
+    "item": "minecraft:iron_shovel"
+  },
+  "output": {
+    "item": "metallum:iron_cluster_shovel"
+  },
+  "spirits": [
+    {
+      "type": "earthen",
+      "count": 8
+    },
+    {
+      "type": "infernal",
+      "count": 8
+    }
+  ]
+}

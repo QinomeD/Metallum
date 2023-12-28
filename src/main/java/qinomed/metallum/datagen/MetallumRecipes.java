@@ -4,6 +4,7 @@ import com.sammy.malum.registry.common.item.ItemRegistry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import qinomed.metallum.item.MetallumItems;
 
@@ -28,6 +29,14 @@ public class MetallumRecipes extends RecipeProvider implements IConditionBuilder
                 .pattern(" # ")
                 .pattern("# #")
                 .pattern(" # ")
+                .unlockedBy("has_hallowed_gold", has(ItemRegistry.HALLOWED_GOLD_INGOT.get()))
+                .save(consumer);
+
+        shaped(MetallumItems.CRUDE_GLAIVE.get())
+                .define('/', Items.STICK).define('#', ItemRegistry.HALLOWED_GOLD_INGOT.get()).define('o', ItemRegistry.PROCESSED_SOULSTONE.get())
+                .pattern(" ##")
+                .pattern("#/o")
+                .pattern("/  ")
                 .unlockedBy("has_hallowed_gold", has(ItemRegistry.HALLOWED_GOLD_INGOT.get()))
                 .save(consumer);
     }

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "malum:hallowed_gold_ingot"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "o": {
+      "item": "malum:processed_soulstone"
+    }
+  },
+  "pattern": [
+    " ##",
+    "#/o",
+    "/  "
+  ],
+  "result": {
+    "item": "metallum:crude_glaive"
+  }
+}
