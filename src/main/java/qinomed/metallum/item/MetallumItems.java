@@ -7,6 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import qinomed.metallum.Metallum;
 import qinomed.metallum.item.trinkets.ReagentCharmItem;
+import qinomed.metallum.item.weapons.MetallumGlaiveItem;
 
 @SuppressWarnings("unused")
 public class MetallumItems {
@@ -57,7 +58,8 @@ public class MetallumItems {
     // End
 
     // Weapons
-
+    public static final RegistryObject<Item> CRUDE_GLAIVE = ITEMS.register("crude_glaive",
+            () -> new MetallumGlaiveItem(Tiers.IRON, 1, 0.1f, BASIC().stacksTo(1).durability(350)));
     // End
 
     // Trinkets

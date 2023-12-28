@@ -1,11 +1,10 @@
-// 1.19.2	2023-12-28T11:30:14.3191889	Item Models: metallum
+// 1.19.2	2023-12-28T13:16:44.0379554	Item Models: metallum
 c047b23544774d19a94139f0765d089b2ccbf862 assets/metallum/models/item/golden_cluster_axe.json
 07722681367ea59d2167bf51e1416bf8ba92f116 assets/metallum/models/item/golden_cluster_hoe.json
 d01292b9594fdba6f99e26e823b60df3d76f50c3 assets/metallum/models/item/golden_cluster_pickaxe.json
 ba6191f70d528d1837a39c58459fce8ead6fabc0 assets/metallum/models/item/golden_cluster_shovel.json
 4f81c1d7e571eb417e95da592c793a2c21a490cc assets/metallum/models/item/golden_cluster_sword.json
 805f765a427b571b314c74f0602161daf78e20a8 assets/metallum/models/item/hallowed_frame.json
-8e271d368334f89edff07aa2916121b3fc66f802 assets/metallum/models/item/illiad.json
 11e49eca5a261fdb76995a68729731ecabef203c assets/metallum/models/item/iron_cluster_axe.json
 fc6fc0faf8909b893f03cc80c6841afbce7b6122 assets/metallum/models/item/iron_cluster_hoe.json
 9ef497521cc8800061f34d6e64ac1a7f7e3b5648 assets/metallum/models/item/iron_cluster_pickaxe.json

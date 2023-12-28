@@ -6,6 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import qinomed.metallum.Metallum;
+import qinomed.metallum.item.weapons.MetallumGlaiveItem;
 import team.lodestar.lodestone.systems.datagen.ItemModelSmithTypes;
 import team.lodestar.lodestone.systems.datagen.itemsmith.AbstractItemModelSmith;
 import team.lodestar.lodestone.systems.datagen.providers.LodestoneItemModelProvider;
@@ -26,6 +27,7 @@ public class MetallumItemModels extends LodestoneItemModelProvider {
         Set<Supplier<Item>> items = new HashSet<>(ITEMS.getEntries());
 
         // items.removeIf(i -> i.get() instanceof BlockItem);
+        items.removeIf(i -> i.get() instanceof MetallumGlaiveItem);
 
         AbstractItemModelSmith.ItemModelSmithData data = new AbstractItemModelSmith.ItemModelSmithData(this, items::remove);
 
