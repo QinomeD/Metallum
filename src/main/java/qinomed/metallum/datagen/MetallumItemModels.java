@@ -32,5 +32,7 @@ public class MetallumItemModels extends LodestoneItemModelProvider {
         setTexturePath("");
         ItemModelSmithTypes.HANDHELD_ITEM.act(data, items.stream().filter(i -> i.get() instanceof DiggerItem).toList());
         ItemModelSmithTypes.HANDHELD_ITEM.act(data, items.stream().filter(i -> i.get() instanceof SwordItem).toList());
+
+        ItemModelSmithTypes.GENERATED_ITEM.act(data, items);
     }
 }

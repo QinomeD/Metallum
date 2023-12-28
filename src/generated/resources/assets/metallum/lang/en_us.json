@@ -4,10 +4,12 @@
   "item.metallum.golden_cluster_pickaxe": "Golden Cluster Pickaxe",
   "item.metallum.golden_cluster_shovel": "Golden Cluster Shovel",
   "item.metallum.golden_cluster_sword": "Golden Cluster Sword",
+  "item.metallum.hallowed_frame": "Hallowed Frame",
   "item.metallum.iron_cluster_axe": "Iron Cluster Axe",
   "item.metallum.iron_cluster_hoe": "Iron Cluster Hoe",
   "item.metallum.iron_cluster_pickaxe": "Iron Cluster Pickaxe",
   "item.metallum.iron_cluster_shovel": "Iron Cluster Shovel",
   "item.metallum.iron_cluster_sword": "Iron Cluster Sword",
+  "item.metallum.reagent_pendant": "Reagent Pendant",
   "itemGroup.metallum": "Metallum"
 }
