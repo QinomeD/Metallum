@@ -24,6 +24,10 @@ base {
     archivesName = mod_id
 }
 
+jar {
+    exclude "qinomed/metallum/datagen/**"
+}
+
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
