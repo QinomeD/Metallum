@@ -1,4 +1,4 @@
-// 1.19.2	2023-12-28T18:02:19.7059173	Metallum Spirit Infusion Recipe Provider
+// 1.19.2	2023-12-29T09:47:23.3313283	Metallum Spirit Infusion Recipe Provider
 5db0790273329c9a926a252b0aa975b7de2bfcf4 data/malum/recipes/spirit_infusion/golden_cluster_axe.json
 fb3829c5311f25186f022993cc750d9fc643de4b data/malum/recipes/spirit_infusion/golden_cluster_hoe.json
 dfd19766d3e51498db46b6457e114e0e0660f5cd data/malum/recipes/spirit_infusion/golden_cluster_pickaxe.json
@@ -9,3 +9,5 @@ bd3b429a0695e0b7bdb8836b4651d16153989953 data/malum/recipes/spirit_infusion/iron
 75135aa5d35768f9426d3ebe55adbffdd93b0e11 data/malum/recipes/spirit_infusion/iron_cluster_pickaxe.json
 384d116deaf9f1181f1eecb51126900a07495eb1 data/malum/recipes/spirit_infusion/iron_cluster_shovel.json
 dadf86bb6b27cc526b83aa1d5808982651f4fc90 data/malum/recipes/spirit_infusion/iron_cluster_sword.json
+6688178b0d92f9e4f0de704122e972e0fae09efb data/malum/recipes/spirit_infusion/reagent_pendant.json
+627e8620aef45c03a685917318e25bcd2f739b3b data/malum/recipes/spirit_infusion/reverberation_implant.json

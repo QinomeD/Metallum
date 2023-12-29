@@ -8,6 +8,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -17,6 +18,7 @@ import qinomed.metallum.datagen.MetallumLang;
 import qinomed.metallum.datagen.MetallumRecipes;
 import qinomed.metallum.datagen.MetallumSpiritInfusionRecipes;
 import qinomed.metallum.item.MetallumItems;
+import top.theillusivec4.curios.api.SlotTypeMessage;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Metallum.MODID)
@@ -46,7 +48,7 @@ public class Metallum {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
-
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("body").build());
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent

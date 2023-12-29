@@ -7,6 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import qinomed.metallum.Metallum;
 import qinomed.metallum.item.trinkets.ReagentCharmItem;
+import qinomed.metallum.item.trinkets.ReverberationImplantItem;
 import qinomed.metallum.item.weapons.MetallumGlaiveItem;
 
 @SuppressWarnings("unused")
@@ -65,6 +66,9 @@ public class MetallumItems {
     // Trinkets
     public static final RegistryObject<Item> REAGENT_PENDANT = ITEMS.register("reagent_pendant",
             () -> new ReagentCharmItem(BASIC().stacksTo(1)));
+
+    public static final RegistryObject<Item> REVERBERATION_IMPLANT = ITEMS.register("reverberation_implant",
+            () -> new ReverberationImplantItem(BASIC().stacksTo(1)));
     // End
 
     private static RegistryObject<Item> basicItem(String name) {
