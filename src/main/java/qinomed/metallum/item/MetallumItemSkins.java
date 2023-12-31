@@ -6,16 +6,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import qinomed.metallum.Metallum;
 
 @Mod.EventBusSubscriber(modid = Metallum.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MetallumItemSkins {
-
-    @SubscribeEvent
-    public void registerItemSkins(FMLCommonSetupEvent event) {
-
-    }
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
@@ -24,7 +18,7 @@ public class MetallumItemSkins {
 
     public static class ClientOnly {
         public static void addRenderingData() {
-            ItemSkinRegistry.ClientOnly.registerItemSkinRenderingData("bondrewd", new ItemSkin.ItemSkinRenderingData(
+            ItemSkinRegistry.ClientOnly.registerItemSkinRenderingData("delver", new ItemSkin.ItemSkinRenderingData(
                     p -> new ResourceLocation("metallum", "textures/armor/bondrewd.png"),
                     p -> Metallum.ClientModEvents.DELVER
             ));
