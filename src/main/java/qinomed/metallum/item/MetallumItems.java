@@ -1,5 +1,6 @@
 package qinomed.metallum.item;
 
+import com.sammy.malum.common.item.cosmetic.GenericWeaveItem;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -69,6 +70,11 @@ public class MetallumItems {
 
     public static final RegistryObject<Item> REVERBERATION_IMPLANT = ITEMS.register("reverberation_implant",
             () -> new ReverberationImplantItem(BASIC().stacksTo(1)));
+    // End
+
+    // Weaves
+    public static final RegistryObject<Item> DELVER_WEAVE = ITEMS.register("delver_weave",
+            () -> new GenericWeaveItem(BASIC()));
     // End
 
     private static RegistryObject<Item> basicItem(String name) {
