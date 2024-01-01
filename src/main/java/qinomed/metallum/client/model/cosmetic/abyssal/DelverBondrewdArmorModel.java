@@ -61,26 +61,28 @@ public class DelverBondrewdArmorModel extends LodestoneArmorModel {
                 .texOffs(16, 32).addBox(-4.0F, -24.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.7F)), PartPose.offset(0.0F, 24.0F, 0.0F));
 
         PartDefinition right_legging = root.getChild("right_legging");
-        PartDefinition right_leg = right_legging.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(0, 16).addBox(-3.9F, -12.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.525F))
+        PartDefinition right_leg = right_legging.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(0, 16).addBox(-3.9F, -12.0F, -2.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(0.525F))
                 .texOffs(0, 32).addBox(-3.9F, -12.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.7F)), PartPose.offset(2.0F, 12.0F, 0.0F));
 
         PartDefinition right_foot = root.getChild("right_foot");
-        PartDefinition right_boot = right_foot.addOrReplaceChild("right_boot", CubeListBuilder.create(), PartPose.offset(-1.9F, -12.0F, 0.0F));
+        PartDefinition right_boot = right_foot.addOrReplaceChild("right_boot", CubeListBuilder.create().texOffs(32, 52).addBox(-3.1F, 7.0F, -3.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.25F))
+                .texOffs(0, 52).addBox(-3.1F, 7.0F, -3.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.1F, 0.0F, 0.0F));
 
         PartDefinition right_arm = root.getChild("right_arm");
         PartDefinition right_shoulder = right_arm.addOrReplaceChild("right_shoulder", CubeListBuilder.create().texOffs(40, 16).addBox(-8.0F, -24.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.525F))
                 .texOffs(40, 32).addBox(-8.0F, -24.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.7F)), PartPose.offset(5.0F, 22.0F, 0.0F));
 
         PartDefinition left_legging = root.getChild("left_legging");
-        PartDefinition left_leg = left_legging.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(16, 48).addBox(-0.1F, -12.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.525F))
-                .texOffs(0, 48).addBox(-0.1F, -12.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.7F)), PartPose.offset(-2.0F, 12.0F, 0.0F));
+        PartDefinition left_leg = left_legging.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-0.1F, -12.0F, -2.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(0.525F)).mirror(false)
+                .texOffs(0, 32).mirror().addBox(-0.1F, -12.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.7F)).mirror(false), PartPose.offset(-2.0F, 12.0F, 0.0F));
 
         PartDefinition left_foot = root.getChild("left_foot");
-        PartDefinition left_boot = right_foot.addOrReplaceChild("left_boot", CubeListBuilder.create(), PartPose.offset(1.9F, -12.0F, 0.0F));
+        PartDefinition left_boot = left_foot.addOrReplaceChild("left_boot", CubeListBuilder.create().texOffs(32, 52).mirror().addBox(-2.9F, 7.0F, -3.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.25F)).mirror(false)
+                .texOffs(0, 52).mirror().addBox(-2.9F, 7.0F, -3.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.01F)).mirror(false), PartPose.offset(-0.1F, 0.0F, 0.0F));
 
         PartDefinition left_arm = root.getChild("left_arm");
-        PartDefinition left_shoulder = left_arm.addOrReplaceChild("left_shoulder", CubeListBuilder.create().texOffs(32, 48).addBox(4.0F, -24.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.525F))
-                .texOffs(48, 48).addBox(4.0F, -24.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.7F)), PartPose.offset(-5.0F, 22.0F, 0.0F));
+        PartDefinition left_shoulder = left_arm.addOrReplaceChild("left_shoulder", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(4.0F, -24.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.525F)).mirror(false)
+                .texOffs(40, 32).mirror().addBox(4.0F, -24.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.7F)).mirror(false), PartPose.offset(-5.0F, 22.0F, 0.0F));
 
         PartDefinition helmet_full_bright = helmetFullBright.addOrReplaceChild("helmet_full_bright", CubeListBuilder.create().texOffs(11, 8).addBox(-0.5F, -31.99F, -4.1F, 1.0F, 8.0F, 0.0F, new CubeDeformation(0.525F)), PartPose.offset(0.0F, 24.0F, 0.0F));
 

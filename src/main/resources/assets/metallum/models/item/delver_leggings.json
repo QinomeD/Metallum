@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "metallum:item/cosmetic/armor_icons/delver_leggings"
+  }
+}
