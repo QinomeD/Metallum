@@ -4,6 +4,7 @@ import com.sammy.malum.registry.common.item.ItemRegistry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import qinomed.metallum.item.MetallumItems;
@@ -38,6 +39,12 @@ public class MetallumRecipes extends RecipeProvider implements IConditionBuilder
                 .pattern("#/o")
                 .pattern("/  ")
                 .unlockedBy("has_hallowed_gold", has(ItemRegistry.HALLOWED_GOLD_INGOT.get()))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(MetallumItems.DELVER_WEAVE.get())
+                .requires(ItemRegistry.ESOTERIC_SPOOL.get())
+                .requires(Items.DEEPSLATE)
+                .unlockedBy("has_spool", has(ItemRegistry.ESOTERIC_SPOOL.get()))
                 .save(consumer);
     }
 }
