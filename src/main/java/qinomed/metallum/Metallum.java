@@ -4,11 +4,9 @@ import com.sammy.malum.core.systems.item.ItemSkin;
 import com.sammy.malum.registry.common.ItemSkinRegistry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -25,9 +23,6 @@ import qinomed.metallum.datagen.MetallumSpiritInfusionRecipes;
 import qinomed.metallum.item.MetallumItems;
 import team.lodestar.lodestone.systems.item.LodestoneArmorItem;
 import top.theillusivec4.curios.api.SlotTypeMessage;
-
-import java.awt.*;
-import java.util.function.Supplier;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Metallum.MODID)
@@ -81,13 +76,6 @@ public class Metallum {
         @SubscribeEvent
         public static void addLayers(EntityRenderersEvent.AddLayers event) {
             DELVER = new DelverBondrewdArmorModel(event.getEntityModels().bakeLayer(DelverBondrewdArmorModel.LAYER));
-        }
-
-        private static void registerFuelRodColor(RegisterColorHandlersEvent.Item event, Supplier<? extends Item> item, Color color) {
-            int r = color.getRed();
-            int g = color.getGreen();
-            int b = color.getBlue();
-            event.register((stack, i) -> i == 1 ? r << 16 | g << 8 | b : -1, item.get());
         }
     }
 

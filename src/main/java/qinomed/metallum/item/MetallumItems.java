@@ -61,7 +61,10 @@ public class MetallumItems {
 
     // Weapons
     public static final RegistryObject<Item> CRUDE_GLAIVE = ITEMS.register("crude_glaive",
-            () -> new MetallumGlaiveItem(Tiers.IRON, 1, 0.1f, BASIC().stacksTo(1).durability(350)));
+            () -> new MetallumGlaiveItem(MetallumTiers.HALLOWED_GOLD, 1, 0.1f, BASIC().stacksTo(1)));
+
+    public static final RegistryObject<Item> DIMENSION_SHREDDER = ITEMS.register("dimension_shredder",
+            () -> new MetallumGlaiveItem(MetallumTiers.DIMENSION_SHREDDER, 2, 0.1f, BASIC().rarity(Rarity.RARE).stacksTo(1)));
     // End
 
     // Trinkets
