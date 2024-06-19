@@ -9,6 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 import qinomed.metallum.Metallum;
 import qinomed.metallum.item.trinkets.ReagentCharmItem;
 import qinomed.metallum.item.trinkets.ReverberationImplantItem;
+import qinomed.metallum.item.weapons.DimensionShredderItem;
 import qinomed.metallum.item.weapons.MetallumGlaiveItem;
 
 @SuppressWarnings("unused")
@@ -64,7 +65,7 @@ public class MetallumItems {
             () -> new MetallumGlaiveItem(MetallumTiers.HALLOWED_GOLD, 1, 0.1f, BASIC().stacksTo(1)));
 
     public static final RegistryObject<Item> DIMENSION_SHREDDER = ITEMS.register("dimension_shredder",
-            () -> new MetallumGlaiveItem(MetallumTiers.DIMENSION_SHREDDER, 2, 0.1f, BASIC().rarity(Rarity.RARE).stacksTo(1)));
+            () -> new DimensionShredderItem(MetallumTiers.DIMENSION_SHREDDER, 2, 0.1f, BASIC().rarity(Rarity.RARE).stacksTo(1)));
     // End
 
     // Trinkets
