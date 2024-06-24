@@ -1,6 +1,6 @@
 package qinomed.metallum.item;
 
-import com.sammy.malum.common.item.cosmetic.GenericWeaveItem;
+import com.sammy.malum.common.item.cosmetic.weaves.GenericWeaveItem;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -15,7 +15,7 @@ import qinomed.metallum.item.weapons.MetallumGlaiveItem;
 @SuppressWarnings("unused")
 public class MetallumItems {
     public static Item.Properties BASIC() {
-        return new Item.Properties().tab(Metallum.METALLUM_TAB);
+        return new Item.Properties();
     }
 
     public static final DeferredRegister<Item> ITEMS =

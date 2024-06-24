@@ -1,17 +1,15 @@
 package qinomed.metallum;
 
-import com.sammy.malum.core.systems.item.ItemSkin;
-import com.sammy.malum.registry.common.ItemSkinRegistry;
+import com.sammy.malum.common.item.cosmetic.skins.ArmorSkin;
+import com.sammy.malum.registry.common.item.ArmorSkinRegistry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -19,10 +17,10 @@ import qinomed.metallum.client.model.cosmetic.abyssal.DelverBondrewdArmorModel;
 import qinomed.metallum.datagen.MetallumItemModels;
 import qinomed.metallum.datagen.MetallumLang;
 import qinomed.metallum.datagen.MetallumRecipes;
-import qinomed.metallum.datagen.MetallumSpiritInfusionRecipes;
 import qinomed.metallum.item.MetallumItems;
+import qinomed.metallum.item.MetallumTabsRegistry;
+import qinomed.metallum.item.skin.DelverArmorSkin;
 import team.lodestar.lodestone.systems.item.LodestoneArmorItem;
-import top.theillusivec4.curios.api.SlotTypeMessage;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Metallum.MODID)
@@ -30,12 +28,8 @@ public class Metallum {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "metallum";
 
-    public static final CreativeModeTab METALLUM_TAB = new CreativeModeTab("metallum") {
-        @Override
-        public ItemStack makeIcon() {
-            return new ItemStack(MetallumItems.IRON_CLUSTER_PICKAXE.get());
-        }
-    };
+    // fuck registry, I ain't refactoring and adding gets everywhere
+    public static CreativeModeTab METALLUM_TAB;
 
     public Metallum() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -45,18 +39,16 @@ public class Metallum {
         modEventBus.addListener(this::gatherData);
 
         MetallumItems.register(modEventBus);
+        MetallumTabsRegistry.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        // Curios body slot
-        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("body").build());
-
-        ItemSkinRegistry.registerItemSkin("delver",
-                new ItemSkin(LodestoneArmorItem.class, MetallumItems.DELVER_WEAVE.get()),
-                new ItemSkin.ItemSkinDatagenData(
+        ArmorSkinRegistry.registerItemSkin(
+                new DelverArmorSkin("delver", LodestoneArmorItem.class, MetallumItems.DELVER_WEAVE.get()),
+                new ArmorSkin.ArmorSkinDatagenData(
                         "metallum:item/cosmetic/armor_icons/delver_",
                         "metallum:models/item/delver_",
                         "visor", "cloak", "leggings", "boots"
@@ -85,6 +77,6 @@ public class Metallum {
         generator.addProvider(event.includeServer(), itemProvider);
         generator.addProvider(event.includeClient(), new MetallumLang(generator));
         generator.addProvider(event.includeServer(), new MetallumRecipes(generator));
-        generator.addProvider(event.includeServer(), new MetallumSpiritInfusionRecipes(generator));
+        // generator.addProvider(event.includeServer(), new MetallumSpiritInfusionRecipes(generator));
     }
 }

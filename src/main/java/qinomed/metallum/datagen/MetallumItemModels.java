@@ -1,7 +1,6 @@
 package qinomed.metallum.datagen;
 
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -14,12 +13,13 @@ import team.lodestar.lodestone.systems.datagen.providers.LodestoneItemModelProvi
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 import static qinomed.metallum.item.MetallumItems.ITEMS;
 
 public class MetallumItemModels extends LodestoneItemModelProvider {
     public MetallumItemModels(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, Metallum.MODID, existingFileHelper);
+        super(generator.getPackOutput(), Metallum.MODID, existingFileHelper);
     }
 
     @Override
@@ -32,9 +32,9 @@ public class MetallumItemModels extends LodestoneItemModelProvider {
         AbstractItemModelSmith.ItemModelSmithData data = new AbstractItemModelSmith.ItemModelSmithData(this, items::remove);
 
         setTexturePath("");
-        ItemModelSmithTypes.HANDHELD_ITEM.act(data, items.stream().filter(i -> i.get() instanceof DiggerItem).toList());
-        ItemModelSmithTypes.HANDHELD_ITEM.act(data, items.stream().filter(i -> i.get() instanceof SwordItem).toList());
+        ItemModelSmithTypes.HANDHELD_ITEM.act(data, items.stream().filter(i -> i.get() instanceof SwordItem).collect(Collectors.toList()));
+        ItemModelSmithTypes.HANDHELD_ITEM.act(data, items.stream().filter(i -> i.get() instanceof SwordItem).collect(Collectors.toList()));
 
-        ItemModelSmithTypes.GENERATED_ITEM.act(data, items);
+        ItemModelSmithTypes.GENERATED_ITEM.act(data, new HashSet<>(items));
     }
 }

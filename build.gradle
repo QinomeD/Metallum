@@ -110,20 +110,29 @@ mixin {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    maven {url "https://maven.theillusivec4.top/"}
-    maven {url "https://www.cursemaven.com"}
+    maven {
+        name = "Illusive Soulworks maven"
+        url = "https://maven.theillusivec4.top/"
+    }
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
     maven { url 'https://maven.blamejared.com' }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${minecraft_version}-${curios_version}")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${minecraft_version}-${curios_version}:api")
+
+    compileOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api"))
+    runtimeOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}"))
 
     implementation fg.deobf("team.lodestar.lodestone:lodestone:${minecraft_version}-${lodestone_version}")
     implementation fg.deobf("curse.maven:malum-484064:${malum_version}")
 
-    runtimeOnly fg.deobf("curse.maven:jei-238222:4712866")
+    runtimeOnly fg.deobf("curse.maven:jei-238222:5440261")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }

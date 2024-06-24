@@ -17,16 +17,11 @@ import java.util.function.Consumer;
 
 public class MetallumSpiritInfusionRecipes extends RecipeProvider implements IConditionBuilder {
     public MetallumSpiritInfusionRecipes(DataGenerator generator) {
-        super(generator);
+        super(generator.getPackOutput());
     }
 
     @Override
-    public String getName() {
-        return "Metallum Spirit Infusion Recipe Provider";
-    }
-
-    @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         clusterTool(Items.IRON_SWORD, MetallumItems.IRON_CLUSTER_SWORD.get(), ItemRegistry.IRON_NODE.get(), consumer);
         clusterTool(Items.IRON_PICKAXE, MetallumItems.IRON_CLUSTER_PICKAXE.get(), ItemRegistry.IRON_NODE.get(), consumer);
         clusterTool(Items.IRON_AXE, MetallumItems.IRON_CLUSTER_AXE.get(), ItemRegistry.IRON_NODE.get(), consumer);

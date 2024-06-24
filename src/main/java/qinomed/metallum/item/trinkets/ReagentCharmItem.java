@@ -1,25 +1,19 @@
 package qinomed.metallum.item.trinkets;
 
+import com.sammy.malum.common.item.IMalumEventResponderItem;
 import com.sammy.malum.common.item.curiosities.curios.MalumCurioItem;
-import com.sammy.malum.core.systems.item.IMalumEventResponderItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import team.lodestar.lodestone.helpers.EntityHelper;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 
 public class ReagentCharmItem extends MalumCurioItem implements IMalumEventResponderItem {
     public ReagentCharmItem(Properties properties) {
-        super(properties);
+        super(properties, MalumTrinketType.GILDED);
     }
 
     @Override
-    public boolean isGilded() {
-        return true;
-    }
-
-    @Override
-    public void pickupSpirit(LivingEntity attacker, ItemStack stack, double arcaneResonance) {
+    public void pickupSpirit(LivingEntity attacker, double arcaneResonance) {
         MobEffectInstance speed = attacker.getEffect(MobEffects.MOVEMENT_SPEED);
         MobEffectInstance jumpboost = attacker.getEffect(MobEffects.JUMP);
 

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "#": {
       "item": "malum:hallowed_gold_ingot"
@@ -12,5 +13,6 @@
   ],
   "result": {
     "item": "metallum:hallowed_frame"
-  }
+  },
+  "show_notification": true
 }

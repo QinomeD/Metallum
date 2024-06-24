@@ -1,7 +1,7 @@
 package qinomed.metallum.item.weapons;
 
 import com.google.common.collect.ImmutableMultimap;
-import com.sammy.malum.common.item.curiosities.weapons.MalumScytheItem;
+import com.sammy.malum.common.item.curiosities.weapons.scythe.MalumScytheItem;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ItemStack;
@@ -18,7 +18,7 @@ public class MetallumGlaiveItem extends MalumScytheItem {
     @Override
     public ImmutableMultimap.Builder<Attribute, AttributeModifier> createExtraAttributes() {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> modifiers = new ImmutableMultimap.Builder<>();
-        modifiers.put(ForgeMod.ATTACK_RANGE.get(), new AttributeModifier("Attack range modifier", 2, AttributeModifier.Operation.ADDITION));
+        modifiers.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier("Attack range modifier", 2, AttributeModifier.Operation.ADDITION));
         return modifiers;
     }
 

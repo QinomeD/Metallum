@@ -14,7 +14,7 @@ import static qinomed.metallum.item.MetallumItems.ITEMS;
 
 public class MetallumLang extends LanguageProvider {
     public MetallumLang(DataGenerator gen) {
-        super(gen, Metallum.MODID, "en_us");
+        super(gen.getPackOutput(), Metallum.MODID, "en_us");
     }
 
     @Override

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_spool": {
+    "has_hallowed_gold": {
       "conditions": {
         "items": [
           {
             "items": [
-              "malum:esoteric_spool"
+              "malum:hallowed_gold_ingot"
             ]
           }
         ]
@@ -15,20 +15,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "metallum:delver_weave"
+        "recipe": "metallum:crude_glaive"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_spool",
+      "has_hallowed_gold",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "metallum:delver_weave"
+      "metallum:crude_glaive"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

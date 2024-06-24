@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
-  "loader": "forge:separate-perspective",
+  "loader": "forge:separate_transforms",
   "base": {
     "parent": "metallum:item/crude_glaive_handheld"
   },
