@@ -34,7 +34,7 @@ public class MetallumSpiritInfusionRecipes extends RecipeProvider implements ICo
         clusterTool(Items.GOLDEN_SHOVEL, MetallumItems.GOLDEN_CLUSTER_SHOVEL.get(), ItemRegistry.GOLD_NODE.get(), consumer);
         clusterTool(Items.GOLDEN_HOE, MetallumItems.GOLDEN_CLUSTER_HOE.get(), ItemRegistry.GOLD_NODE.get(), consumer);
 
-        new SpiritInfusionRecipeBuilder(MetallumItems.HALLOWED_FRAME.get(), 1, MetallumItems.REAGENT_PENDANT.get(), 1)
+        new SpiritInfusionRecipeBuilder(MetallumItems.HALLOWED_GOLD_PLATING.get(), 1, MetallumItems.REAGENT_PENDANT.get(), 1)
                 .addExtraItem(Items.STRING, 3)
                 .addExtraItem(ItemRegistry.ALCHEMICAL_CALX.get(), 6)
                 .addExtraItem(ItemRegistry.CTHONIC_GOLD.get(), 1)
@@ -42,7 +42,7 @@ public class MetallumSpiritInfusionRecipes extends RecipeProvider implements ICo
                 .addSpirit(SpiritTypeRegistry.AERIAL_SPIRIT, 4)
                 .build(consumer);
 
-        new SpiritInfusionRecipeBuilder(MetallumItems.HALLOWED_FRAME.get(), 1, MetallumItems.REVERBERATION_IMPLANT.get(), 1)
+        new SpiritInfusionRecipeBuilder(MetallumItems.HALLOWED_GOLD_PLATING.get(), 1, MetallumItems.REVERBERATION_IMPLANT.get(), 1)
                 .addExtraItem(Ingredient.of(Tags.Items.GEMS_QUARTZ), 2)
                 .addExtraItem(ItemRegistry.CLUSTER_OF_BRILLIANCE.get(), 1)
                 .addSpirit(SpiritTypeRegistry.ARCANE_SPIRIT, 4)

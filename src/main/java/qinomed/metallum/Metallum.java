@@ -3,7 +3,6 @@ package qinomed.metallum;
 import com.sammy.malum.common.item.cosmetic.skins.ArmorSkin;
 import com.sammy.malum.registry.common.item.ArmorSkinRegistry;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,9 +26,6 @@ import team.lodestar.lodestone.systems.item.LodestoneArmorItem;
 public class Metallum {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "metallum";
-
-    // fuck registry, I ain't refactoring and adding gets everywhere
-    public static CreativeModeTab METALLUM_TAB;
 
     public Metallum() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

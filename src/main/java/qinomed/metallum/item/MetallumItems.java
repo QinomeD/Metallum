@@ -23,7 +23,7 @@ public class MetallumItems {
 
     // Materials
     public static final RegistryObject<Item>
-            HALLOWED_FRAME = basicItem("hallowed_frame");
+            HALLOWED_GOLD_PLATING = basicItem("hallowed_gold_plating");
     // End
 
     // Iron Cluster Tools

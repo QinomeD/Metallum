@@ -16,7 +16,7 @@
   ],
   "input": {
     "count": 1,
-    "item": "metallum:hallowed_frame"
+    "item": "metallum:hallowed_gold_plating"
   },
   "output": {
     "item": "metallum:reagent_pendant"

@@ -4,15 +4,18 @@
   "key": {
     "#": {
       "item": "malum:hallowed_gold_ingot"
+    },
+    ".": {
+      "item": "malum:hallowed_gold_nugget"
     }
   },
   "pattern": [
-    " # ",
-    "# #",
-    " # "
+    " . ",
+    ".#.",
+    " . "
   ],
   "result": {
-    "item": "metallum:hallowed_frame"
+    "item": "metallum:hallowed_gold_plating"
   },
   "show_notification": true
 }

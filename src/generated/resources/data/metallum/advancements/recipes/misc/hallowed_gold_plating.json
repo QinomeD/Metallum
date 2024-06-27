@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "metallum:hallowed_frame"
+        "recipe": "metallum:hallowed_gold_plating"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "metallum:hallowed_frame"
+      "metallum:hallowed_gold_plating"
     ]
   },
   "sends_telemetry_event": false

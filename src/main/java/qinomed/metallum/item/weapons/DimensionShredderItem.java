@@ -1,18 +1,19 @@
 package qinomed.metallum.item.weapons;
 
+import com.sammy.malum.visual_effects.networked.data.ColorEffectData;
+import com.sammy.malum.visual_effects.networked.data.PositionEffectData;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import team.lodestar.lodestone.registry.common.particle.LodestoneParticleRegistry;
+import qinomed.metallum.vfx.ParticleEffectsRegistry;
+import team.lodestar.lodestone.helpers.RandomHelper;
 import team.lodestar.lodestone.systems.easing.Easing;
-import team.lodestar.lodestone.systems.particle.builder.WorldParticleBuilder;
-import team.lodestar.lodestone.systems.particle.data.GenericParticleData;
-import team.lodestar.lodestone.systems.particle.data.color.ColorParticleData;
-import team.lodestar.lodestone.systems.particle.render_types.LodestoneWorldParticleRenderType;
 
 import java.awt.*;
 
@@ -25,48 +26,47 @@ public class DimensionShredderItem extends MetallumGlaiveItem {
     }
 
     @Override
-    public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
+    public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         Level level = entity.level();
-        Vec3 look = entity.getViewVector(1);
-        Vec3 pos = new Vec3(entity.getX(), entity.getY() + entity.getEyeHeight(), entity.getZ());
+        RandomSource random = level.random;
 
-        Vec3 middle = look.multiply(1.5, 1, 1.5).add(pos);
-        Vec3 unit = normalize2D(look);
+        if (player.getAttackStrengthScale(1) >= 1) {
+            if (!level.isClientSide) {
+                Vec3 look = player.getViewVector(1);
+                Vec3 unit = normalize2D(look);
+                Vec3 pos = new Vec3(entity.getX(), entity.getY() + entity.getBbHeight()/2, entity.getZ());
 
-        Vec3 start = middle.add(unit.yRot(90 * Mth.DEG_TO_RAD));
-        Vec3 end = middle.add(unit.yRot(-90 * Mth.DEG_TO_RAD));
+                // random angle
+                int angle = RandomHelper.randomBetween(random, -20, 20);
+                double side = (2 * Math.tan(angle * Mth.DEG_TO_RAD))/2;
 
-        drawRift(level, start, end, 40);
+                // random offset
+                Vec3 randomOffset = new Vec3(
+                        RandomHelper.randomBetween(random, -0.5, 0.5),
+                        RandomHelper.randomBetween(random, -0.5, 0.5),
+                        RandomHelper.randomBetween(random, -0.5, 0.5));
 
-        return super.onEntitySwing(stack, entity);
-    }
+                Vec3 start = pos.add(unit.yRot(90 * Mth.DEG_TO_RAD)).subtract(0, side, 0).add(randomOffset);
+                Vec3 end = pos.add(unit.yRot(-90 * Mth.DEG_TO_RAD)).add(0, side, 0).add(randomOffset);
 
-    private static void drawRift(Level level, Vec3 start, Vec3 end, int particleCount) {
-        Vec3 direction = start.subtract(end).normalize();
-        double d = start.distanceTo(end) / -particleCount;
-
-        for (int i = 0; i < particleCount; i += 1) {
-            Vec3 pos = start.add(direction.multiply(i*d, i*d, i*d));
-            spawnRiftParticle(level, pos);
+                drawSlash(level, start, end, unit, 60);
+            }
         }
+
+        return super.onLeftClickEntity(stack, player, entity);
     }
 
-    private static void spawnRiftParticle(Level level, Vec3 pos) {
-        spawnRiftParticle(level, pos.x, pos.y, pos.z);
-    }
+    private void drawSlash(Level level, Vec3 start, Vec3 end, Vec3 look, int density) {
+        Vec3 direction = start.subtract(end).normalize();
+        double d = start.distanceTo(end) / -density;
 
-    private static void spawnRiftParticle(Level level, double x, double y, double z) {
-        ColorParticleData colorBuilder = ColorParticleData.create(RIFT_BLUE, RIFT_PURPLE).setCoefficient(2).build();
-
-        WorldParticleBuilder.create(LodestoneParticleRegistry.SPARKLE_PARTICLE)
-                .setTransparencyData(GenericParticleData.create(1, 0).setEasing(Easing.SINE_IN, Easing.SINE_OUT).build())
-                .setLifetime(40)
-                .setScaleData(GenericParticleData.create(0.5f).build())
-                .setColorData(colorBuilder)
-                .setRandomOffset(0.1d)
-                .enableNoClip()
-                .setRenderType(LodestoneWorldParticleRenderType.LUMITRANSPARENT)
-                .spawn(level, x, y, z);
+        for (int i = 0; i < density; i += 1) {
+            double factor = Easing.EXPO_IN_OUT.ease(i, 0, 0.5f, density);
+            Vec3 pos = start
+                    .add(direction.multiply(i*d, i*d, i*d)) // step
+                    .add(look.multiply(factor, factor, factor)); // easing
+            ParticleEffectsRegistry.SLASH.createPositionedEffect(level, new PositionEffectData(pos), new ColorEffectData(RIFT_BLUE, RIFT_PURPLE));
+        }
     }
 
     private static Vec3 normalize2D(Vec3 vec) {

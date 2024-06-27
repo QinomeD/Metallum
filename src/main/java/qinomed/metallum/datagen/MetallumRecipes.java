@@ -26,11 +26,12 @@ public class MetallumRecipes extends RecipeProvider implements IConditionBuilder
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
-        shaped(RecipeCategory.MISC, MetallumItems.HALLOWED_FRAME.get())
+        shaped(RecipeCategory.MISC, MetallumItems.HALLOWED_GOLD_PLATING.get())
+                .define('.', ItemRegistry.HALLOWED_GOLD_NUGGET.get())
                 .define('#', ItemRegistry.HALLOWED_GOLD_INGOT.get())
-                .pattern(" # ")
-                .pattern("# #")
-                .pattern(" # ")
+                .pattern(" . ")
+                .pattern(".#.")
+                .pattern(" . ")
                 .unlockedBy("has_hallowed_gold", has(ItemRegistry.HALLOWED_GOLD_INGOT.get()))
                 .save(consumer);
 
@@ -60,7 +61,7 @@ public class MetallumRecipes extends RecipeProvider implements IConditionBuilder
         clusterTool(Items.GOLDEN_SHOVEL, MetallumItems.GOLDEN_CLUSTER_SHOVEL.get(), ItemRegistry.GOLD_NODE.get(), consumer);
         clusterTool(Items.GOLDEN_HOE, MetallumItems.GOLDEN_CLUSTER_HOE.get(), ItemRegistry.GOLD_NODE.get(), consumer);
 
-        new SpiritInfusionRecipeBuilder(MetallumItems.HALLOWED_FRAME.get(), 1, MetallumItems.REAGENT_PENDANT.get(), 1)
+        new SpiritInfusionRecipeBuilder(MetallumItems.HALLOWED_GOLD_PLATING.get(), 1, MetallumItems.REAGENT_PENDANT.get(), 1)
                 .addExtraItem(Items.STRING, 3)
                 .addExtraItem(ItemRegistry.ALCHEMICAL_CALX.get(), 6)
                 .addExtraItem(ItemRegistry.CTHONIC_GOLD.get(), 1)
@@ -68,7 +69,7 @@ public class MetallumRecipes extends RecipeProvider implements IConditionBuilder
                 .addSpirit(SpiritTypeRegistry.AERIAL_SPIRIT, 4)
                 .build(consumer);
 
-        new SpiritInfusionRecipeBuilder(MetallumItems.HALLOWED_FRAME.get(), 1, MetallumItems.REVERBERATION_IMPLANT.get(), 1)
+        new SpiritInfusionRecipeBuilder(MetallumItems.HALLOWED_GOLD_PLATING.get(), 1, MetallumItems.REVERBERATION_IMPLANT.get(), 1)
                 .addExtraItem(Ingredient.of(Tags.Items.GEMS_QUARTZ), 2)
                 .addExtraItem(ItemRegistry.CLUSTER_OF_BRILLIANCE.get(), 1)
                 .addSpirit(SpiritTypeRegistry.ARCANE_SPIRIT, 4)
