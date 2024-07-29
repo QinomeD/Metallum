@@ -65,7 +65,7 @@ public class MetallumItems {
             () -> new MetallumGlaiveItem(MetallumTiers.HALLOWED_GOLD, 1, 0.1f, BASIC().stacksTo(1)));
 
     public static final RegistryObject<Item> DIMENSION_SHREDDER = ITEMS.register("dimension_shredder",
-            () -> new DimensionShredderItem(MetallumTiers.DIMENSION_SHREDDER, 2, 0.1f, BASIC().rarity(Rarity.RARE).stacksTo(1)));
+            () -> new DimensionShredderItem(MetallumTiers.DIMENSION_SHREDDER, 0, 0.1f, 2, BASIC().rarity(Rarity.RARE).stacksTo(1)));
     // End
 
     // Trinkets

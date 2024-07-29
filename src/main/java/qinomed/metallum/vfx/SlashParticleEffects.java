@@ -1,7 +1,6 @@
 package qinomed.metallum.vfx;
 
 import com.sammy.malum.visual_effects.networked.data.ColorEffectData;
-import com.sammy.malum.visual_effects.networked.data.PositionEffectData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.util.RandomSource;
@@ -22,7 +21,7 @@ import java.awt.*;
 
 public class SlashParticleEffects {
 
-    public static void slash(PositionEffectData positionData, ColorEffectData colorData) {
+    public static void slash(ColorEffectData colorData, Vec3 start, Vec3 end, Vec3 lookOffset) {
         ColorEffectData.ColorRecord record = colorData.getDefaultColorRecord();
         Color primary = record.primaryColor();
         Color secondary = record.secondaryColor();
@@ -30,14 +29,28 @@ public class SlashParticleEffects {
         Level level = Minecraft.getInstance().level;
         RandomSource random = level.random;
 
-        Vec3 pos = new Vec3(positionData.posX, positionData.posY, positionData.posZ);
+        int density = 60;
 
+        Vec3 direction = start.subtract(end).normalize();
+        double d = start.distanceTo(end) / -density;
+
+        for (int i = 0; i < density; i += 1) {
+            double factor = Easing.EXPO_IN_OUT.ease(i, 0, 0.5f, density);
+            Vec3 pos = start
+                    .add(direction.multiply(i*d, i*d, i*d)) // step
+                    .add(lookOffset.multiply(factor, factor, factor)); // easing
+            slashParticle(level, random, pos, primary, secondary);
+        }
+    }
+
+    private static void slashParticle(Level level, RandomSource random, Vec3 pos, Color primary, Color secondary) {
         GenericParticleData lengthData = GenericParticleData.create(0.1f, 0.5f, 0f).setEasing(Easing.SINE_IN_OUT, Easing.SINE_IN_OUT).setCoefficient(1.25f).build();
 
         extrudingSpark(level, random, pos, RenderHandler.LATE_DELAYED_RENDER, LodestoneWorldParticleRenderType.ADDITIVE, primary, secondary,
                 1.5f, 1.5f, 1f, lengthData);
 
         lengthData = lengthData.overrideCoefficientMultiplier(0.25f);
+
         extrudingSpark(level, random, pos, RenderHandler.DELAYED_RENDER, LodestoneWorldParticleRenderType.LUMITRANSPARENT, primary, secondary,
                 3f, 2.6f, 1.75f, lengthData);
     }

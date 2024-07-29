@@ -1,5 +1,6 @@
 package qinomed.metallum;
 
+import com.mojang.logging.LogUtils;
 import com.sammy.malum.common.item.cosmetic.skins.ArmorSkin;
 import com.sammy.malum.registry.common.item.ArmorSkinRegistry;
 import net.minecraft.data.DataGenerator;
@@ -12,6 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.slf4j.Logger;
 import qinomed.metallum.client.model.cosmetic.abyssal.DelverBondrewdArmorModel;
 import qinomed.metallum.datagen.MetallumItemModels;
 import qinomed.metallum.datagen.MetallumLang;
@@ -26,6 +28,7 @@ import team.lodestar.lodestone.systems.item.LodestoneArmorItem;
 public class Metallum {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "metallum";
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public Metallum() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
